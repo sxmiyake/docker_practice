@@ -12,8 +12,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     now_second = datetime.datetime.now().second
-    sensor_values = math.sin(now_second)
-    return render_template('index.html', value = sensor_values)
+    value = math.sin(now_second)
+    return jsonify({"value" : value})
 
 if __name__ == '__main__':
     app.run(debug=True)
